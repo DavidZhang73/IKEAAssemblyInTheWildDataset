@@ -1,0 +1,6 @@
+requests
+yt-dlp
+PyMuPDF
+Pillow
+tqdm
+jsonschema
