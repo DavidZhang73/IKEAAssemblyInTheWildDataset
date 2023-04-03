@@ -35,7 +35,7 @@ def json_schema_check(dataset):
 
 def check_url(url, message, youtube=False):
     if youtube:
-        r = requests.get("https://www.youtube.com/oembed?url=" + url)
+        r = requests.head("https://www.youtube.com/oembed?url=" + url)
         if r.status_code != 200 and r.status_code != 401:
             return message.format(url=url) + f" (status code: {r.status_code}){os.linesep}"
     else:
