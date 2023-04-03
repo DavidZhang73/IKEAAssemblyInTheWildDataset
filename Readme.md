@@ -19,6 +19,9 @@ The IKEA Assembly in The Wild (IAW) Dataset consists of 1005 YouTube videos, the
 git clone https://github.com/DavidZhang73/IKEAAssemblyInTheWildDataset.git
 pip install -r requirements.txt
 
+# sanity check for json schema and url availability
+python sanity_check.py > sanity_check.log
+
 # download the files (manuals and videos)
 python get_dataset.py
 ```
@@ -57,7 +60,7 @@ python get_dataset.py
 
 ### Anontation JSON schema
 
-The schema is defined in [JSON Schema Format](dataset_schema.json). You can use the `santiy_check.py` to check the validity of the dataset JSON file. One example:
+The schema is defined in [JSON Schema Format](dataset_schema.json). One example:
 
 ```json
 [
