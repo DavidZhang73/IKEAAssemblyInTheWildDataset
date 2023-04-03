@@ -45,21 +45,20 @@ def check_url(url, message, youtube=False):
     return ""
 
 
-def url_availability_check(dataset):
+def url_availability_check(dataset, check_image=True, check_manual=True, check_video=True):
     def _url_availability_check(d):
-        info = dict(id=d["id"], name=d["name"], subCategory=d["subCategory"], typeName=d["typeName"])
-        main_image_url = d["mainImageUrl"]
-        manual_pdf_url_list = [manual["url"] for manual in d["manualList"]]
-        video_url_list = [video["url"] for video in d["videoList"]]
-
         fail_message = ""
 
-        fail_message += check_url(main_image_url, "Error: Main Image URL {url}")
-        for i, manual_pdf_url in enumerate(manual_pdf_url_list):
-            fail_message += check_url(manual_pdf_url, f"Error: Manual PDF {i} URL {{url}}")
-        for i, video_url in enumerate(video_url_list):
-            fail_message += check_url(video_url, f"Error: Video {i} URL {{url}}", youtube=True)
+        if check_image:
+            fail_message += check_url(d["mainImageUrl"], "Error: Main Image URL {url}")
+        if check_manual:
+            for i, manual in enumerate(d["manualList"]):
+                fail_message += check_url(manual["url"], f"Error: Manual PDF {i} URL {{url}}")
+        if check_video:
+            for i, video in enumerate(d["videoList"]):
+                fail_message += check_url(video["url"], f"Error: Video {i} URL {{url}}", youtube=True)
         if fail_message:
+            info = dict(id=d["id"], name=d["name"], subCategory=d["subCategory"], typeName=d["typeName"])
             print(f"Error: Furniture {info}")
             print(fail_message)
 
