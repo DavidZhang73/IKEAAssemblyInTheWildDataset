@@ -216,7 +216,7 @@ If you find this dataset useful, please cite our paper:
 
 ```bibtex
 @inproceedings{Zhang2023Aligning,
-  author    = {Zhang, Jiahao and Cherian, Anoop Liu, Yanbin and Ben-Shabat, Yizhak and Rodriguez, Cristian and Gould, Stephen},
+  author    = {Zhang, Jiahao and Cherian, Anoop and Liu, Yanbin and Ben-Shabat, Yizhak and Rodriguez, Cristian and Gould, Stephen},
   title     = {Aligning Step-by-Step Instructional Diagrams to Video Demonstrations},
   booktitle = {Conference on Computer Vision and Pattern Recognition (CVPR)},
   year      = {2023},
