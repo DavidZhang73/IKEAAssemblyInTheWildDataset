@@ -2,8 +2,8 @@
 
 # IKEA Assembly in The Wild (IAW) Dataset
 
-[![Dataset Website](https://img.shields.io/badge/Website-IAW-blue.svg)](https://iaw.davidz.cn)
-[![Project Website](https://img.shields.io/badge/Website-Project-blue.svg)](https://academic.davidz.cn/en/publication/zhang-cvpr-2023/)
+[![Dataset Website](https://img.shields.io/badge/Website-IAW-61d4ff.svg)](https://iaw.davidz.cn)
+[![Project Website](https://img.shields.io/badge/Website-Project-61d4ff.svg)](https://academic.davidz.cn/en/publication/zhang-cvpr-2023/)
 [![License](https://img.shields.io/badge/License-MIT-red.svg)](./LICENSE)
 
 ![Demo](img/teaser.png)
@@ -20,9 +20,11 @@ git clone https://github.com/DavidZhang73/IKEAAssemblyInTheWildDataset.git
 pip install -r requirements.txt
 
 # sanity check for json schema and url availability
+# NOTICE: Some URLs may be unavailable due to the change of IKEA website and YouTube videos.
 python sanity_check.py > sanity_check.log
 
 # download the files (manuals and videos)
+# NOTICE: This may take a while (denpends on your internet speed), and the total size is around 230GB (~229GB videos + ~1GB manuals).
 python get_dataset.py
 ```
 
@@ -49,7 +51,7 @@ python get_dataset.py
     │           │   └── step-2.png
     │           └── video                      # video files
     │               └── <video_id>.mp4         # video downloaded from YouTube
-    └── split
+    └── split                                  # dataset splits for the project https://github.com/DavidZhang73/AssemblyVideoManualAlignment
         ├── train.json                         # train split, a subset of the IKEAAssemblyInTheWildDataset.json
         ├── train_clip.csv                     # train split csv file for the Dataloader
         ├── val.json
